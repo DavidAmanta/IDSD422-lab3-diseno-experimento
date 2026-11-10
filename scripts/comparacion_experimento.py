@@ -3,6 +3,8 @@
 #   python scripts/comparacion_experimento.py
 
 # TODO 1: carga plantillas/registro_experimento.csv con pandas
+import json
+
 import pandas as pd
 import numpy as np
 
@@ -41,3 +43,34 @@ for tienda, cond in zip(tiendas, primera):
          filas.append({"tienda": tienda, 
                        "semana": s,
                        "ubicacion": cond if s%2 == 1 else otra})
+
+diseno = pd.DataFrame(filas)
+
+#Simulacion de la ejecucion
+rng = np.random.default_rng(1234598)  # Semilla para reproducibilidad
+efecto_tienda = dict(zip(tiendas, rng.normal(1100, 120, len(tiendas)))) 
+efecto_semana = {1: 0, 2: 30, 3: 60, 4: 90}  
+diseno["ventas_producto"] = (
+     diseno["tienda"].map(efecto_tienda) +
+     diseno["semana"].map(efecto_semana) + 
+     (diseno["ubicacion"] == "pasillo_principal")*220 +
+     rng.normal(0, 90, len(diseno))
+ ).round(0).astype(int)
+
+#Promocion simultanea registrada
+diseno["promocion_simultanea"] = "no"
+
+diseno.loc[(diseno["tienda"]== "Guayaquil Centro") & (diseno["semana"] == 1), "promocion_simultanea"] = "si"
+diseno.loc[diseno["promocion_simultanea"] == "si", "ventas_producto"] += 180
+
+#Analisis pareado: una fila por tienda con sus condiciones 
+piv = diseno.groupby(["tienda", "ubicacion"])["ventas_producto"].mean().unstack()
+piv["diferencia"] = piv["pasillo_principal"] - piv["habitual"]
+
+media = piv["diferencia"].mean()
+dev = piv["diferencia"].std(ddof=1)
+
+print("\n")
+print("Promedio de la diferencia de ventas entre ubicaciones:", media)
+print("Desviación estándar de la diferencia de ventas entre ubicaciones:", dev)
+
