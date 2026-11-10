@@ -63,6 +63,8 @@ diseno["promocion_simultanea"] = "no"
 diseno.loc[(diseno["tienda"]== "Guayaquil Centro") & (diseno["semana"] == 1), "promocion_simultanea"] = "si"
 diseno.loc[diseno["promocion_simultanea"] == "si", "ventas_producto"] += 180
 
+diseno.to_csv("plantillas/resultado_simulacion.csv", index=False)
+
 #Analisis pareado: una fila por tienda con sus condiciones 
 piv = diseno.groupby(["tienda", "ubicacion"])["ventas_producto"].mean().unstack()
 piv["diferencia"] = piv["pasillo_principal"] - piv["habitual"]
