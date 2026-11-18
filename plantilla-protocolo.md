@@ -48,17 +48,23 @@ Se sortea, para cada una de las 10 tiendas, qué ubicación recibe en la semana 
 
 ## 8. Limitaciones del diseño
 
-- Pérdida de potencia por promociones
-- Canibalización de las tiendas
+- **Qué podría invalidar el diseño:** promociones simultáneas, efecto de arrastre entre semanas consecutivas, tendencia temporal no perfectamente balanceada, quiebres de stock, eventos externos locales, incumplimiento del protocolo de colocación y ciego solo parcial.
+
+- **Qué no se podrá concluir:** que el efecto aplique a otros productos, otras tiendas o regiones, ni que se mantenga a largo plazo; tampoco el mecanismo causal, el impacto sobre productos vecinos (canibalización) ni la rentabilidad. Con solo 10 tiendas y 4 semanas, los resultados son orientativos.
+
 
 ## 9. Comparación en código (Python/R)
 
-*Escribe `scripts/comparacion_experimento.py` (o `.R`): debe cargar `plantillas/registro_experimento.csv` y calcular el promedio de `ventas_producto` por `ubicacion`. Incluye la salida y responde:*
-
 - ¿Qué grupo muestra mayor venta promedio en la plantilla?
-El pasillo muestra 1335 USD en venta frente a 1040 USD en habitual
+
+   El grupo pasillo principal muestra la mayor venta promedio: 1335 USD frente a 1040 USD en la ubicación habitual (diferencia de 295 USD).
 
 - ¿Por qué con 4 filas no se puede concluir nada sobre el efecto de la ubicación?
-No se puede concluir porque no hay ninguna afirmación real aleatoria, los datos son muy pocos (4), no tenemos control de temporada, ni promociones en el grupo pasillo y no hay medida de variabilidad.
+
+    Con 4 filas no se puede concluir porque hay solo 2 observaciones por grupo, así que un dato atípico cambia todo el promedio, cada fila es una tienda distinta, por lo que la diferencia puede deberse a la tienda y no a la ubicación, no hay evidencia de aleatorización en la asignación, la única fila con promoción simultánea (Guayaquil Centro, 1420 USD) está en el grupo pasillo y lo infla, no hay control de temporada y finalmente no hay medida de variabilidad (desviación, IC ni p-value) para saber si la diferencia es mayor que el azar.
 
 - Si el experimento se ejecutara con tu protocolo, ¿qué le faltaría a este análisis para ser justo?
+
+    Le faltarían más unidades (10 tiendas × 4 semanas = 40 observaciones), que cada tienda pruebe ambas ubicaciones, para comparar dentro de la misma tienda (análisis pareado), una asignación aleatoria del orden con semilla, un control o registro de promociones, temporada, stock y afluencia; y una medida de variabilidad y una prueba estadística.
+    
+     En la simulación, esto da una diferencia media de 239.7 USD, IC 95% [166.5, 312.9] y p = 0.00004, que ya permite una conclusión más sólida.
