@@ -4,30 +4,32 @@
 
 ## 1. Pregunta e hipótesis
 
-El producto  en el pasillo principal, vende más en promedio que su ubicación actual, en ventas semanales durante 4 semanas.
+**Pregunta**: ¿Vende más, en promedio, el producto cuando se exhibe en el pasillo principal que en su ubicación habitual?
+
+**Hipótesis**: En 10 tiendas, durante 4 semanas, las ventas semanales promedio en USD del producto serán mayores en el pasillo principal que en la ubicación habitual.
+- H₀: la diferencia media de ventas (pasillo principal − habitual) es 0.
+- H₁: la diferencia media es mayor que 0.
+
 
 ## 2. Unidad experimental
 
-Semana-Tienda
-(**# de tiendas x # de semanas**)
+Semana-tienda: 10 tiendas × 4 semanas = 40 unidades. Se justifica porque la ubicación se cambia semana a semana dentro de cada tienda. Para el análisis estadístico, la unidad efectiva es la tienda (n = 10 diferencias pareadas), porque las semanas de una misma tienda no son independientes.
 
 - 10 tiendas x 4 semanas = 40 unidades
 
 ## 3. Factor, niveles y tratamiento
 
-- **Factor** (variable manipulada): Ubicación
-- **Niveles** (valores del factor): Pasillo y Habitual
-- **Tratamiento** (combinación asignada): Pasillo durante una semana y ubicación habitual durante otra (grupo de control)
+- **Factor** (variable manipulada): Ubicación del producto
+- **Niveles** (valores del factor): Pasillo principal y Habitual
+- **Tratamiento** (combinación asignada): Pasillo principal durante una semana y ubicación habitual durante otra (grupo de control)
 
 ## 4. Grupo de control
 
-La misma tienda, pero con el producto dispuesto en la ubicacón habitual.
+La misma tienda en las semanas en que el producto está en su ubicación habitual. Sirve de referencia y elimina las diferencias entre tiendas (tamaño, clientela).
 
 ## 5. Aleatorización
 
-Sorteo de 20, tiendas a cada grupo (paralelo). 
-
-- **Línea de código de la asignación (Python o R):** escribe el comando que asigna al azar tus N unidades a los dos grupos (tratamiento y control) y ejecútalo con semilla. Incluye el resultado de una corrida y explica por qué el sorteo reparte los factores desconocidos entre los grupos.
+Se sortea, para cada una de las 10 tiendas, qué ubicación recibe en la semana 1 (pasillo principal u habitual) en las semanas siguientes se alterna. El sorteo hace que la asignación no dependa de ninguna característica de la tienda ni de la semana, por lo que los factores desconocidos (clima, afluencia, tendencia de ventas, eventos locales) quedan repartidos al azar entre ambas ubicaciones en lugar de favorecer a una. Así, una diferencia sistemática de ventas puede atribuirse con mayor confianza a la ubicación y no a esos factores. La semilla (1234597) hace el sorteo reproducible.
 
 ## 6. Respuesta y medición
 

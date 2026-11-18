@@ -1,0 +1,41 @@
+tienda,semana,ubicacion,ventas_producto,promocion_simultanea
+Quito Norte,1,habitual,979,no
+Quito Norte,2,pasillo_principal,1380,no
+Quito Norte,3,habitual,1055,no
+Quito Norte,4,pasillo_principal,1259,no
+Quito Sur,1,pasillo_principal,1158,no
+Quito Sur,2,habitual,978,no
+Quito Sur,3,pasillo_principal,1359,no
+Quito Sur,4,habitual,1058,no
+Guayaquil Centro,1,habitual,1407,si
+Guayaquil Centro,2,pasillo_principal,1569,no
+Guayaquil Centro,3,habitual,1326,no
+Guayaquil Centro,4,pasillo_principal,1668,no
+Guayaquil Norte,1,pasillo_principal,1331,no
+Guayaquil Norte,2,habitual,1027,no
+Guayaquil Norte,3,pasillo_principal,1377,no
+Guayaquil Norte,4,habitual,1169,no
+Cuenca Centro,1,pasillo_principal,1182,no
+Cuenca Centro,2,habitual,1103,no
+Cuenca Centro,3,pasillo_principal,1330,no
+Cuenca Centro,4,habitual,1186,no
+Cuenca Sur,1,habitual,1211,no
+Cuenca Sur,2,pasillo_principal,1298,no
+Cuenca Sur,3,habitual,1244,no
+Cuenca Sur,4,pasillo_principal,1603,no
+Ambato Centro,1,habitual,1020,no
+Ambato Centro,2,pasillo_principal,1063,no
+Ambato Centro,3,habitual,1123,no
+Ambato Centro,4,pasillo_principal,1158,no
+Manta,1,habitual,966,no
+Manta,2,pasillo_principal,1399,no
+Manta,3,habitual,1095,no
+Manta,4,pasillo_principal,1427,no
+Loja,1,habitual,991,no
+Loja,2,pasillo_principal,1332,no
+Loja,3,habitual,1064,no
+Loja,4,pasillo_principal,1427,no
+Machala,1,pasillo_principal,1194,no
+Machala,2,habitual,1071,no
+Machala,3,pasillo_principal,1424,no
+Machala,4,habitual,1071,no

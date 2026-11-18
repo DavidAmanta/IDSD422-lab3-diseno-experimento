@@ -4,6 +4,7 @@
 
 # TODO 1: carga plantillas/registro_experimento.csv con pandas
 import json
+from scipy import stats
 
 import pandas as pd
 import numpy as np
@@ -75,4 +76,18 @@ dev = piv["diferencia"].std(ddof=1)
 print("\n")
 print("Promedio de la diferencia de ventas entre ubicaciones:", media)
 print("Desviación estándar de la diferencia de ventas entre ubicaciones:", dev)
+n=len(piv)
+ 
+t_crict = stats.t.ppf(0.975, df=9) 
+ic_inf = media - (t_crict * dev / n**0.5)
+ic_sup = media + (t_crict * dev / n**0.5)
+#Independientemente del numero de veces que se corra el experimemto podemos decir que con un 95% 
+#de certeza el valor del promedio de la diferencia de ventas del producto
+#entre el pasillo principal y la ubicación habitual va a caer en el rango
 
+print(f"[{ic_inf}, {ic_sup}]")
+
+#prueba p-value
+
+prueba = stats.ttest_rel(piv["pasillo_principal"], piv["habitual"])
+print(f"{prueba.pvalue: .10f}")
