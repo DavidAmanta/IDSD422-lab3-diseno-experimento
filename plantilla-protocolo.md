@@ -8,14 +8,13 @@
 
 **Hipótesis**: En 10 tiendas, durante 4 semanas, las ventas semanales promedio en USD del producto serán mayores en el pasillo principal que en la ubicación habitual.
 - H₀: la diferencia media de ventas (pasillo principal − habitual) es 0.
-- H₁: la diferencia media es mayor que 0.
+- H₁: la diferencia media es distinta de 0.
 
 
 ## 2. Unidad experimental
 
 Semana-tienda: 10 tiendas × 4 semanas = 40 unidades. Se justifica porque la ubicación se cambia semana a semana dentro de cada tienda. Para el análisis estadístico, la unidad efectiva es la tienda (n = 10 diferencias pareadas), porque las semanas de una misma tienda no son independientes.
 
-- 10 tiendas x 4 semanas = 40 unidades
 
 ## 3. Factor, niveles y tratamiento
 
@@ -66,5 +65,5 @@ Se sortea, para cada una de las 10 tiendas, qué ubicación recibe en la semana 
 - Si el experimento se ejecutara con tu protocolo, ¿qué le faltaría a este análisis para ser justo?
 
     Le faltarían más unidades (10 tiendas × 4 semanas = 40 observaciones), que cada tienda pruebe ambas ubicaciones, para comparar dentro de la misma tienda (análisis pareado), una asignación aleatoria del orden con semilla, un control o registro de promociones, temporada, stock y afluencia; y una medida de variabilidad y una prueba estadística.
-    
+
      En la simulación, esto da una diferencia media de 239.7 USD, IC 95% [166.5, 312.9] y p = 0.00004, que ya permite una conclusión más sólida.
